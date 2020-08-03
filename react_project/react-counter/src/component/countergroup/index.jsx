@@ -5,22 +5,24 @@ class CounterGroup extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            number : 2
+            number : 0
         }
         this.handelChange = this.handelChange.bind(this)
     }
 
-	handelChange(inputText){
+	handelChange(event){
 
-        if (inputText.target.value == "") {
-
-        } else {
+        var inputNumber = Number(event.target.value);
+        if (!isNaN(inputNumber)) {
             this.setState({
-                number : parseInt(inputText.target.value)
+                number : inputNumber
+            })
+        } else {
+            alert("error inputs")
+            this.setState({
+                number : 0
             })
         }
-
-
 	}
 
     render() {
