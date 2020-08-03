@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import CounterGroup from './component/countergroup';
+import Counter from './component/counter';
 
 
 
@@ -22,7 +23,7 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <CounterGroup></CounterGroup>
+    <Counter></Counter>
   );
 }
 

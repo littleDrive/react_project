@@ -4,39 +4,45 @@ class Counter extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state = {
-            counter : 0,
-        }
-    }
-    increase = ()=> {
-        this.setState({
-            counter: this.state.counter + 1
-        })
-        this.props.count(1)
-    }
 
-    decrease = ()=> {
-        this.setState({
-            counter: this.state.counter - 1
-        })
-        this.props.count(-1)
     }
+    // increase = ()=> {
+    //     this.setState({
+    //         count: this.state.count + 1
+    //     })
+    //     this.props.count(1)
+    // }
+
+    // decrease = ()=> {
+    //     this.setState({
+    //         count: this.state.count - 1
+    //     })
+    //     this.props.count(-1)
+    // }
 
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.number != this.props.number) {
-            this.setState({
-                counter: 0
-            })
-        }
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.number != this.props.number) {
+    //         this.setState({
+    //             count: 0
+    //         })
+    //     }
+    // }
+
+    countAdd = () => {
+         this.props.countAdd()
+     }
+
+     countSub = () => {
+         this.props.countSub()
+     }
 
     render() {
         return (
             <div>
-                <div><button onClick={this.increase}>+</button></div>
-                <div>{this.state.counter}</div>
-                <div><button onClick={this.decrease}>-</button></div>
+                <div><button onClick={this.countAdd}>+</button></div>
+                <div>{this.props.count}</div>
+                <div><button onClick={this.countSub}>-</button></div>
             </div>
         );
     }
