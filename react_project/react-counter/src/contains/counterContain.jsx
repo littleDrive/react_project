@@ -1,25 +1,30 @@
-import React from 'react';
 import { connect } from 'react-redux'
-import counter from '../component/counter'
-import {add,sub} from "../redux/actions/countAction";
+import CounterGroup from '../component/countergroup/index'
+import {CHANGE_NUMBER, ADD, SUB} from "../redux/actions/counterGroupAction";
 
 const mapStateToProps = (status) => {
+    console.log(status)
     return {
-        count: status.counter.count,
+        
+        number: status.CounterReducer.number,
+        total: status.CounterReducer.total
     }
 }
 
 const mapDispatchToProps = (dispath) => {
     return {
-        countAdd: (count) => {
-            dispath(add)
+        addTotal: () => {
+            dispath(ADD())
         },
-        countSub: (count) => {
-            dispath(sub)
+        subTotal: () => {
+            dispath(SUB())
+        },
+        updateNumber: (number) => {
+            dispath(CHANGE_NUMBER(number))
         }
     }
 }
 
-const App = connect(mapStateToProps, mapDispatchToProps)(counter)
+const CounterGroupApp = connect(mapStateToProps, mapDispatchToProps)(CounterGroup)
 
-export default App;
+export default CounterGroupApp;

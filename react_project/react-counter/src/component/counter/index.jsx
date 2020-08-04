@@ -4,7 +4,9 @@ class Counter extends React.Component{
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            count: 0
+        }
     }
     // increase = ()=> {
     //     this.setState({
@@ -30,18 +32,24 @@ class Counter extends React.Component{
     // }
 
     countAdd = () => {
-         this.props.countAdd()
+        this.setState({
+            count: this.state.count + 1
+        })
+         this.props.parent.props.addTotal()
      }
 
      countSub = () => {
-         this.props.countSub()
-     }
+        this.setState({
+            count: this.state.count - 1
+        })
+        this.props.parent.props.subTotal()
+    }
 
     render() {
         return (
             <div>
                 <div><button onClick={this.countAdd}>+</button></div>
-                <div>{this.props.count}</div>
+                <div>{this.state.count}</div>
                 <div><button onClick={this.countSub}>-</button></div>
             </div>
         );
